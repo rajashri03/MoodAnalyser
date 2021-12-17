@@ -8,17 +8,40 @@ namespace MoodAnalyzerTest
     public class UnitTest1
     {
         /// <summary>
-        /// Uc2-null message should return Happy
+        /// Mood Should not be Empty
         /// </summary>
         /// <param name="msg"></param>
         [TestMethod]
-        [DataRow(null)]
-        public void GivingHappyMessage_ShouldReturnHappy(string msg)
+        public void GivingEmptyMood_ShouldReturnException_EmptyMood()
         {
-            Mood message = new Mood("Happy");
-            string actual = message.analysisMood();
-            string expected = "Happy";
-            Assert.AreEqual(expected, actual);
+            try
+            {
+                string message = "";
+                Mood moodanlysis = new Mood(message); ;
+                string actual = moodanlysis.analysisMood();
+            }
+            catch(MoodCustomException e)
+            {
+                Assert.AreEqual("Mood should not be empty", e.Message);
+            }
+        }
+        /// <summary>
+        /// Mood should not null
+        /// </summary>
+        /// <param name="msg"></param>
+        [TestMethod]
+        public void GivingNullMood_ShouldReturnException_NullMood()
+        {
+            try
+            {
+                string message = null;
+                Mood moodanlysis = new Mood(message); ;
+                string actual = moodanlysis.analysisMood();
+            }
+            catch (MoodCustomException e)
+            {
+                Assert.AreEqual("Mood should not be Null", e.Message);
+            }
         }
     }
 }
