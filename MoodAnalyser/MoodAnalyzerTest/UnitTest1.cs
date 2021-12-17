@@ -16,12 +16,15 @@ namespace MoodAnalyzerTest
         {
             try
             {
+                //Arrange
                 string message = "";
-                Mood moodanlysis = new Mood(message); ;
+                Mood moodanlysis = new Mood(message);
+                //Act
                 string actual = moodanlysis.analysisMood();
             }
             catch(MoodCustomException e)
             {
+                //Assert
                 Assert.AreEqual("Mood should not be empty", e.Message);
             }
         }
@@ -34,12 +37,15 @@ namespace MoodAnalyzerTest
         {
             try
             {
+                //Arrange
                 string message = null;
-                Mood moodanlysis = new Mood(message); ;
+                Mood moodanlysis = new Mood(message);
+                //Act
                 string actual = moodanlysis.analysisMood();
             }
             catch (MoodCustomException e)
             {
+                //Asset
                 Assert.AreEqual("Mood should not be Null", e.Message);
             }
         }
