@@ -9,15 +9,15 @@ namespace MoodAnalyzerTest
         [TestMethod]
         public void GivingSadMessage_ShouldReturnSad()
         {
-            Mood message = new Mood();
-            string result = message.analysisMood("I am in Sad Mood");
+            Mood message = new Mood("I am in Sad Mood");
+            string result = message.msg1;
             Assert.AreEqual("I am in Sad Mood", result);
         }
         [TestMethod]
         public void GivingSadMessage_ShouldReturnHappy()
         {
-            Mood message = new Mood();
-            string result = message.analysisMood("I am in Happy Mood");
+            Mood message = new Mood("I am in Happy Mood");
+            string result = message.msg1;
             Assert.AreEqual("I am in Happy Mood", result);
         }
     }
