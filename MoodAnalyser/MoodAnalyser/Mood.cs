@@ -8,7 +8,6 @@ namespace MoodAnalyser
 {
     /// <summary>
     /// Mood Analyser-Checking Happy and sad Mood Status
-    /// using Parameterized constructor
     /// </summary>
     public class Mood
     {
