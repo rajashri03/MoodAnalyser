@@ -1,7 +1,6 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MoodAnalyser;
-
 namespace MoodAnalyzerTest
 {
     [TestClass]
@@ -48,6 +47,14 @@ namespace MoodAnalyzerTest
                 //Asset
                 Assert.AreEqual("Mood should not be Null", e.Message);
             }
+        }
+        [TestMethod]
+        public void GivenMoodAnalyseClassName_ShouldreturnObject()
+        {
+            string message= null;
+            object expected = new Mood(message);
+            object obj = MoodAnlyserFactory.CreateMoodAnalyser("MoodAnalyser.Mood", "Mood");
+            expected.Equals(obj);
         }
     }
 }

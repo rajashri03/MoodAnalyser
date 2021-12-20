@@ -8,7 +8,10 @@ namespace MoodAnalyser
 {
     public class Mood
     {
+        public Mood()
+        {
 
+        }
         string msg1;
         /// <summary>
         /// Mood Analyser-Checking Happy and sad Mood Status
