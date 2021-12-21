@@ -48,7 +48,11 @@ namespace MoodAnalyzerTest
                 Assert.AreEqual("Mood should not be Null", e.Message);
             }
         }
+        /// <summary>
+        /// Reflection to Create MoodAnalyser with default Constructor - Create MoodAnalyserFactory and specify
+        /// </summary>
         [TestMethod]
+        
         public void GivenMoodAnalyseClassName_ShouldreturnObject()
         {
             string message= null;
@@ -56,6 +60,9 @@ namespace MoodAnalyzerTest
             object obj = MoodAnlyserFactory.CreateMoodAnalyser("MoodAnalyser.Mood", "Mood");
             expected.Equals(obj);
         }
+        /// <summary>
+        /// Reflection to Create MoodAnalyser with Parameter Constructor - Create MoodAnalyserFactory and specify
+        /// </summary>
         [TestMethod]
         public void GivenMoodAnalyseClassName_ShouldreturnObjectusingParameterisedConstructor()
         {
