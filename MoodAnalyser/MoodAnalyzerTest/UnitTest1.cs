@@ -21,7 +21,7 @@ namespace MoodAnalyzerTest
                 //Act
                 string actual = moodanlysis.analysisMood();
             }
-            catch(MoodCustomException e)
+            catch (MoodCustomException e)
             {
                 //Assert
                 Assert.AreEqual("Mood should not be empty", e.Message);
@@ -50,14 +50,27 @@ namespace MoodAnalyzerTest
         }
         /// <summary>
         /// Reflection to Create MoodAnalyser with default Constructor - Create MoodAnalyserFactory and specify
+        /// Tc4.1-Given MoodAnalyser  Class Name Should Return MoodAnalyser Object 
         /// </summary>
         [TestMethod]
-        
+
         public void GivenMoodAnalyseClassName_ShouldreturnObject()
         {
-            string message= null;
+            string message = null;
             object expected = new Mood(message);
             object obj = MoodAnlyserFactory.CreateMoodAnalyser("MoodAnalyser.Mood", "Mood");
+            expected.Equals(obj);
+        }
+        /// <summary>
+        /// Reflection to Create MoodAnalyser with default Constructor - Create MoodAnalyserFactory and specify
+        /// Tc4.2-Given Class Name When Improper Should Throw MoodAnalysisException
+        /// </summary>
+        [TestMethod]
+        public void GivenMoodAnalyseClassName_ShouldreturnError()
+        {
+            string message = null;
+            object expected = new Mood(message);
+            object obj = MoodAnlyserFactory.CreateMoodAnalyser("MoodAnalyser.Wrongclass", "Wrongclass");
             expected.Equals(obj);
         }
         /// <summary>
@@ -67,7 +80,7 @@ namespace MoodAnalyzerTest
         public void GivenMoodAnalyseClassName_ShouldreturnObjectusingParameterisedConstructor()
         {
             object expected = new Mood("Happy");
-            object obj = MoodAnlyserFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyser.Mood", "Mood","Happy");
+            object obj = MoodAnlyserFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyser.Mood", "Mood", "Happy");
             expected.Equals(obj);
         }
     }
